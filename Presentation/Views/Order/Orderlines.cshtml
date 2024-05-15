@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "Orderlines";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input id="OrderId" value="@ViewBag.OrderId" type="hidden" />
+<input id="Orderline" value="" type="hidden" />
+<div class="main-content">
+    <main>
+        <div style="margin-top: 15px; margin-bottom: 25px; background-color: #ffffff; padding: 5px; border-radius: 5px;">
+            <h3 class="dash-title">Order Header Information</h3>
+            <div class="row" style="margin-top:10px;">
+                <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <div class="col-lg-3">
+                            <h5 class="dash-title"><strong>OrderNumber</strong></h5>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5 class="dash-title"><strong>: @ViewBag.OrderNumber</strong></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-6"></div>
+
+                </div>
+                <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <div class="col-lg-3">
+                            <h5 class="dash-title"><strong>Customer Name</strong></h5>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5 class="dash-title"><strong>:    @ViewBag.CustomerName</strong></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-6"></div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <div class="col-lg-3">
+                            <h5 class="dash-title"><strong>Create Date</strong></h5>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5 class="dash-title"><strong>:    @ViewBag.CreateDate</strong></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-6"></div>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:15px;margin-bottom: 15px;">
+            <h3 class="dash-title">Orderlines</h3>
+            <a class='btn btn-sm' style='background-color:#00246B; color:#fff;float: right;' onclick="addOrUpdateOrderlinePopup('0')"><span class="ti-plus" style='color:#fff'></span> Add Orderline</a>
+        </div>
+
+        <table id="tblOrderlines" class="table table-striped table-bordered" style="width: 100%; font-size: smaller;">
+            <thead style="font-size: x-small;">
+                <tr>
+                    <th></th>
+                    <th>Line Number</th>
+                    <th>Product Code</th>
+                    <th>Product Type</th>
+                    <th>Product Cost Price</th>
+                    <th>Product Sales Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </main>
+</div>
+
+@*Add or Update order popup*@
+<div class="modal" tabindex="-1" role="dialog" id="modalAddOrEdit">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #4169E1;">
+                <h3 class="modal-title" style="color:#ffffff;"></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12" style="margin-bottom:10px;">
+                        <div class="col-lg-6">
+                            <label>Line Number</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="txtLineNumber" class="form-control" readonly />
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="margin-bottom:10px;">
+                        <div class="col-lg-6">
+                            <label>Product Code</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="txtProductCode" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="margin-bottom:10px;">
+                        <div class="col-lg-6">
+                            <label>Product Type</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <select id="ddlProductTypes" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="margin-bottom:10px;">
+                        <div class="col-lg-6">
+                            <label>Product Cost Price</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="txtProductCostPrice" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="margin-bottom:10px;">
+                        <div class="col-lg-6">
+                            <label>Product Sales Price</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="txtProductSalesPrice" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-6">
+                            <label>Quantity</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <input id="txtQuantity" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a onclick="AddOrUpdateOrderline()"  class="btn btn-primary">Save changes</a>
+                <a onclick="clearAllPopupFields()" class="btn btn-secondary" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script src="~/Scripts/Application_Scripts/Order/Orderlines.js"></script>
+}
+

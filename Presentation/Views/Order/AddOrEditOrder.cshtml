@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Add/Edit Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<input id="OrderId" value="@ViewBag.Id" type="hidden" />
+<div class="main-content">
+    <main>
+        <div style="margin-top:15px;margin-bottom: 25px;">
+            <h2 class="dash-title">Order Details</h2>
+        </div>
+        <div>
+            <div class="col-lg-12 form-fields">
+                <div class="col-lg-4">
+                    <label>Order Number</label>
+                </div>
+                <div class="col-lg-4">
+                    <input id="txtOrderNumber" class="form-control" />
+                </div>
+            </div>
+            <div class="col-lg-12 form-fields ">
+                <div class="col-lg-4">
+                    <label>Order Type</label>
+                </div>
+                <div class="col-lg-4">
+                    <select id="ddlOrderTypes" name="ddlOrderTypes" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-lg-12 form-fields ">
+                <div class="col-lg-4">
+                    <label>Order Status</label>
+                </div>
+                <div class="col-lg-4">
+                    <select id="ddlOrderStatus" name="ddlOrderStatus" class="form-control"></select>
+                </div>
+            </div>
+            <div class="col-lg-12 form-fields ">
+                <div class="col-lg-4">
+                    <label>Customer Name</label>
+                </div>
+                <div class="col-lg-4">
+                    <input id="txtCustomerName" class="form-control" />
+                </div>
+            </div>
+            <div class="col-lg-12 form-fields ">
+                <div class="col-lg-4">
+                    <label>Create Date</label>
+                </div>
+                <div class="col-lg-4">
+                    <input id="txtCreateDate" class="form-control" type="datetime-local" />
+                </div>
+            </div>
+            <div class="col-lg-12 form-fields ">
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4">
+                    <button class="btn btn-primary" onclick="AddOrUpdateOrder()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div> 
+@section scripts{
+        <script src="~/Scripts/Application_Scripts/Order/AddOrEditOrder.js"></script>
+    }
+
